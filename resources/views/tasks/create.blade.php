@@ -3,6 +3,7 @@
 @section('content')
     <div class="container">
         <div>
+            <h1> Create Task</h1>
             <form action="{{ route('tasks.store') }}" method="POST">
                 @csrf
                 <table>

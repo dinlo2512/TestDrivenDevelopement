@@ -4,6 +4,7 @@
 @section('content')
     <div class="container">
         <div>
+            <h1>Update Task </h1>
             <form action="{{ route('tasks.update' , $task->id) }}" method="POST">
                 @csrf
                 <table>
@@ -13,7 +14,7 @@
                                 Name
                             </label>
                         </td>
-                        <td>
+                        <td style="width: 100%">
                             @error('name')
                             <p class="error text-danger">{{ $message }}</p>
                             @enderror
