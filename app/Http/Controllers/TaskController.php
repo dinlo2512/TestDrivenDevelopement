@@ -59,7 +59,8 @@ class TaskController extends Controller
      */
     public function show($id)
     {
-        //
+        $tasks = $this->task->findorFail($id);
+        return view('tasks.show', compact('tasks'));
     }
 
     /**
