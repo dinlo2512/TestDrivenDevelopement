@@ -7,6 +7,7 @@ use App\Http\Requests\TaskUpdateRequest;
 use App\Models\Task;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use phpDocumentor\Reflection\Utils;
 
 class TaskController extends Controller
 {
@@ -101,5 +102,15 @@ class TaskController extends Controller
         $task->delete();
 
         return redirect(route('task.index'))->with('success', 'Delete Success');
+    }
+
+    public function search()
+    {
+        if (isset($_GET['submit'])){
+            $name = $_GET['search'];
+
+            $search = Task::where('name','LIKE', '%'.$name.'%')->get();
+            return  view('tasks.index',compact('search'));
+        }
     }
 }
